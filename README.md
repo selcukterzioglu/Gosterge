@@ -9,4 +9,6 @@ Arduino ve arduino tabanlı sistemlerde çalışmaktadır.
 	* displaySayisi : kaç tane display kontrol edilecek
 	* ortakAnotMu : Bağlana göstergeler ortak anot mu ortak katot mu?
 
-* gostergeGuncelle(int data, int ondalik); göstergeleri gunceller
+* gostergeGuncelle(int data, int ondalik); 
+	* göstergeleri gunceller
+	* Bu metod bir zamanlayıcı(timer) kesmesi ile 5msn aralıklarla çağrılmalıdırç
