@@ -1,0 +1,23 @@
+#######################################
+# Syntax Coloring Map For Gosterge
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+Gosterge	KEYWORD1	Gosterge
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+gostergeGuncelle	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+ORTAK_ANOT	LITERAL1
+ORTAK_KATOT LITERAL1
+ONDALIK_YOK LITERAL1
