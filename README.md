@@ -11,4 +11,4 @@ Arduino ve arduino tabanlı sistemlerde çalışmaktadır.
 
 * gostergeGuncelle(int data, int ondalik); 
 	* göstergeleri gunceller
-	* Bu metod bir zamanlayıcı(timer) kesmesi ile 5msn aralıklarla çağrılmalıdırç
+	* Bu metod bir zamanlayıcı(timer) kesmesi ile 5msn aralıklarla çağrılmalıdır.
