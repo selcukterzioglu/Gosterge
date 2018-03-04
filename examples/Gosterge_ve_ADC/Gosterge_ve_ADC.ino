@@ -1,6 +1,24 @@
 #include <Gosterge.h>
 #include <TimerOne.h>
+/*
+        A
+      ─────   
+    F|  G  |B  
+      ─────   
+    D|     |C  
+      ─────   .DP
+        C
+     Segment bağlantıları (DP display Nokta)
+     DP=9, G=8, F=7, E=6, D=5, C=4, B=3, A=2     
+     
+     ────    ────    ────
+    |    |  |    |  |    |
+     ────    ────    ────  .........
+    |    |  |    |  |    |
+     ────    ────    ────
+     Anot0   Anot1   Anot2 .........
 
+ */
 int segmentler[]={9,8,7,6,5,4,3,2};
 int anotlar[]={10,11,12};
 int displaySayisi = 3;
