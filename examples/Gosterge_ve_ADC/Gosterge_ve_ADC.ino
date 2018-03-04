@@ -5,9 +5,9 @@
       ───   
     F|  G  |B  
       ───   
-    D|     |C  
+    E|     |C  
       ───   .DP
-        C
+        D
      Segment bağlantıları (DP display Nokta)
      DP=9, G=8, F=7, E=6, D=5, C=4, B=3, A=2     
      
