@@ -16,3 +16,20 @@ Free
 	ortakAnotMu : Bağlana göstergeler ortak anot mu ortak katot mu?
 
 * gostergeGuncelle(int data, int ondalik); göstergeleri gunceller
+
+        A
+      ─────   
+    F|  G  |B  
+      ─────   
+    D|     |C  
+      ─────   .DP
+        C
+     Segment bağlantıları (DP display Nokta)
+     DP=9, G=8, F=7, E=6, D=5, C=4, B=3, A=2     
+     
+     ────    ────    ────
+    |    |  |    |  |    |
+     ────    ────    ────  .........
+    |    |  |    |  |    |
+     ────    ────    ────
+     Anot0   Anot1   Anot2 .........
