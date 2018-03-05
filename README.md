@@ -12,3 +12,6 @@ Arduino ve arduino tabanlı sistemlerde çalışmaktadır.
 * gostergeGuncelle(int data, int ondalik); 
 	* göstergeleri gunceller
 	* Bu metod bir zamanlayıcı(timer) kesmesi ile 5msn aralıklarla çağrılmalıdır.
+* gostergeGuncelle(int data, int ondalik, int ozelKarakter, boolean pozisyon);
+	* göstergeleri günceller
+	* Bu metodda göstergeini başına veya sonuna derece sembolü veya eksi ekelenbilir.
