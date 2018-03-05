@@ -16,14 +16,7 @@ void setup() {
 
 int _sicaklik = 0, sicaklik = 0;
 void loop() {
-  // put your main code here, to run repeatedly:
-  //int data = analogRead(1);
-  //float mv = data * 0.48828125;
-  //sicaklik = mv * 10;
-  //sicaklik += _sicaklik;
-  //sicaklik /= 2;
-  //_sicaklik = sicaklik;
-  //delay(2000);
+
 }
 
 int yuvarla(int data) {
