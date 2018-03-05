@@ -80,12 +80,6 @@ void Gosterge::gostergeGuncelle(int data, int ondalikSayisi, int ozelKarakter, b
 
 void Gosterge::gostergeGonder(uint8_t dispData)
 {
-	//if (dispData > 9) {
-	//	for (int i = 0; i < 8; i++) {
-	//		digitalWrite(_segmentler[i], 0 ^ _ortakAnotMu);
-	//	}
-	//	return;
-	//}
 	for (int i = 0; i < 8; i++) {
 		digitalWrite(_segmentler[i], GOSTERGE_BILGISI[dispData][i] ^ _ortakAnotMu);
 	}
