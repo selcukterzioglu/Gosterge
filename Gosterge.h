@@ -17,16 +17,21 @@
 #define ORTAK_ANOT	1
 #define ORTAK_KATOT 0
 #define ONDALIK_YOK	-1
+#define OZEL_KARAKTER_YOK -1
+
+#define DERECE		10
+#define EKSI		11
+#define D_NULL		12
+#define SONA_EKLE	true
+#define BASA_EKLE	false
 
 class Gosterge
 {
 public:
-
-
 	Gosterge(int* segmentler, int* suruculer, int displaySayisi, boolean ortakAnotMu);
 	void gostergeGuncelle(int data);
 	void gostergeGuncelle(int data, int ondalikSayisi);
-
+	void gostergeGuncelle(int data, int ondalikSayisi, int ozelKarakter, boolean pozisyon);
 private:
 	int* _segmentler;
 	int* _suruculer;
@@ -35,8 +40,9 @@ private:
 
 	void gostergeGonder(uint8_t dispData);
 	void rakamAyir(int data, int* rakamlar);
+	void sifiriKaldir(int* rakamlar, int ondalikSayisi);
 
-	const uint8_t GOSTERGE_BILGISI[10][8] = {
+	const uint8_t GOSTERGE_BILGISI[13][8] = {
 	   //P,G,F,E,D,C,B,A
 		{0,0,1,1,1,1,1,1},		//0
 		{0,0,0,0,0,1,1,0},		//1
@@ -47,10 +53,10 @@ private:
 		{0,1,1,1,1,1,0,0},		//6
 		{0,0,0,0,0,1,1,1},		//7
 		{0,1,1,1,1,1,1,1},		//8
-		{0,1,1,0,0,1,1,1}		//9
+		{0,1,1,0,0,1,1,1},		//9
+		{0,1,1,0,0,0,1,1},		//DERECE
+		{0,1,0,0,0,0,0,0},		//EKSİ
+		{0,0,0,0,0,0,0,0}		//KAPALI
 	};
-
 };
-
 #endif
-
