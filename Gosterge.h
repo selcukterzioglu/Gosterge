@@ -22,6 +22,8 @@
 #define DERECE		10
 #define EKSI		11
 #define D_NULL		12
+#define S		13
+#define H		14
 #define SONA_EKLE	true
 #define BASA_EKLE	false
 
@@ -56,7 +58,9 @@ private:
 		{0,1,1,0,0,1,1,1},		//9
 		{0,1,1,0,0,0,1,1},		//DERECE
 		{0,1,0,0,0,0,0,0},		//EKSİ
-		{0,0,0,0,0,0,0,0}		//KAPALI
+		{0,0,0,0,0,0,0,0},		//KAPALI
+		{1,1,1,0,1,1,0,1},		//S
+		{1,1,1,1,0,1,1,0}		//H
 	};
 };
 #endif
