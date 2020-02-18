@@ -42,7 +42,6 @@ private:
 
 	void gostergeGonder(uint8_t dispData);
 	void rakamAyir(int data, int* rakamlar);
-	void sifiriKaldir(int* rakamlar, int ondalikSayisi);
 
 	const uint8_t GOSTERGE_BILGISI[15][8] = {
 	   //P,G,F,E,D,C,B,A
