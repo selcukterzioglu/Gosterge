@@ -28,7 +28,6 @@ void Gosterge::gostergeGuncelle(int data)
 	}
 	int rakam[8];
 	rakamAyir(data, rakam);
-	sifiriKaldir(rakam, ONDALIK_YOK);
 	gostergeGonder(rakam[display]);
 	digitalWrite(_suruculer[display], HIGH ^ _ortakAnotMu);
 	display++;
@@ -44,7 +43,8 @@ void Gosterge::gostergeGuncelle(int data, int ondalikSayisi)
 	}
 	int rakam[8];
 	rakamAyir(data, rakam);
-	sifiriKaldir(rakam, ondalikSayisi);
+	if(rakam[ondalikSayisi] == D_NULL)
+		rakam[ondalikSayisi] == 0;
 	gostergeGonder(rakam[display]);
 	if ((_displaySayisi - ondalikSayisi - 1) == display)
 		digitalWrite(_segmentler[0], HIGH ^ _ortakAnotMu);
@@ -64,7 +64,8 @@ void Gosterge::gostergeGuncelle(int data, int ondalikSayisi, int ozelKarakter, b
 	}
 	int rakam[8];
 	rakamAyir(data, rakam);
-	sifiriKaldir(rakam, ondalikSayisi);
+	if(rakam[ondalikSayisi] == D_NULL)
+		rakam[ondalikSayisi] == 0;
 	if (pozisyon == BASA_EKLE)
 		rakam[0] = ozelKarakter;
 	else
@@ -97,32 +98,29 @@ void Gosterge::rakamAyir(int data,int * rakamlar)
 			rakamlar[_displaySayisi - i-1] = temp % 10;
 			temp -= rakamlar[_displaySayisi - i-1];
 			temp /= 10;
-		}
-		
+		}		
 	}
-}
-
-void Gosterge::sifiriKaldir(int * rakamlar, int ondalikSayisi)
-{
-
-	if (rakamlar[0] > 0)
-		return;
-	for (int i = 0; i < _displaySayisi; i++) {
-		if (i == ondalikSayisi)
-			return;
-		if (i == 0) {
-			if (rakamlar[i] == 0)
-				rakamlar[i] = D_NULL;
+	if(data >= 0){
+		if(data < 10){
+			rakamlar[0] = D_NULL;
+			rakamlar[1] = D_NULL;
+			rakamlar[2] = D_NULL;
+		} else if(data <100 ) {
+			rakamlar[0] = D_NULL;
+			rakamlar[1] = D_NULL;
+		} else if(data < 1000) {
+			rakamlar[0] = D_NULL;
 		}
-		else
-		{
-			if (rakamlar[i - 1] == 0)
-				if (rakamlar[i] == 0)
-					rakamlar[i] = D_NULL;
-				else
-					return;
-			else
-				return;
+	} else {
+		if(data > -10){
+			rakamlar[0] = D_NULL;
+			rakamlar[1] = D_NULL;
+			rakamlar[2] = D_NULL;
+		} else if(data > -100 ) {
+			rakamlar[0] = D_NULL;
+			rakamlar[1] = D_NULL;
+		} else if(data >- 1000) {
+			rakamlar[0] = D_NULL;
 		}
-	}	
+	}
 }
