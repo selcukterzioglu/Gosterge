@@ -27,7 +27,7 @@ void Gosterge::gostergeGuncelle(int data)
 		digitalWrite(_suruculer[i], LOW ^_ortakAnotMu);
 	}
 	int rakam[8];
-	rakamAyir(data, rakam);
+	rakamAyir(data, rakam, ONDALIK_YOK);
 	gostergeGonder(rakam[display]);
 	digitalWrite(_suruculer[display], HIGH ^ _ortakAnotMu);
 	display++;
@@ -42,9 +42,7 @@ void Gosterge::gostergeGuncelle(int data, int ondalikSayisi)
 		digitalWrite(_suruculer[i], LOW ^_ortakAnotMu);
 	}
 	int rakam[8];
-	rakamAyir(data, rakam);
-	if(rakam[ondalikSayisi] == D_NULL)
-		rakam[ondalikSayisi] == 0;
+	rakamAyir(data, rakam, ondalikSayisi);
 	gostergeGonder(rakam[display]);
 	if ((_displaySayisi - ondalikSayisi - 1) == display)
 		digitalWrite(_segmentler[0], HIGH ^ _ortakAnotMu);
@@ -63,9 +61,7 @@ void Gosterge::gostergeGuncelle(int data, int ondalikSayisi, int ozelKarakter, b
 		digitalWrite(_suruculer[i], LOW ^_ortakAnotMu);
 	}
 	int rakam[8];
-	rakamAyir(data, rakam);
-	if(rakam[ondalikSayisi] == D_NULL)
-		rakam[ondalikSayisi] == 0;
+	rakamAyir(data, rakam, ondalikSayisi);
 	if (pozisyon == BASA_EKLE)
 		rakam[0] = ozelKarakter;
 	else
@@ -86,7 +82,7 @@ void Gosterge::gostergeGonder(uint8_t dispData)
 	}
 }
 
-void Gosterge::rakamAyir(int data,int * rakamlar)
+void Gosterge::rakamAyir(int data,int * rakamlar, int ondalik)
 {
 	int temp = data;
 	int dispSay = _displaySayisi - 1;
@@ -121,6 +117,11 @@ void Gosterge::rakamAyir(int data,int * rakamlar)
 			rakamlar[1] = D_NULL;
 		} else if(data >- 1000) {
 			rakamlar[0] = D_NULL;
+		}
+	}
+	if(ondalik != ONDALIK_YOK){
+		if(rakamlar[ondalik+1] == D_NULL){
+			rakamlar[ondalik+1] = 0;
 		}
 	}
 }

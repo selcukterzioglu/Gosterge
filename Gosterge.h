@@ -22,8 +22,8 @@
 #define DERECE		10
 #define EKSI		11
 #define D_NULL		12
-#define C		13
-#define T		14
+#define C			13
+#define T			14
 #define SONA_EKLE	true
 #define BASA_EKLE	false
 
@@ -37,29 +37,30 @@ public:
 private:
 	int* _segmentler;
 	int* _suruculer;
-	int _displaySayisi;
+	int _displaySayisi;	
 	boolean _ortakAnotMu;
 
 	void gostergeGonder(uint8_t dispData);
-	void rakamAyir(int data, int* rakamlar);
+	void rakamAyir(int data, int* rakamlar, int ondalik);
+	// void sifiriKaldir(int* rakamlar, int ondalikSayisi);
 
 	const uint8_t GOSTERGE_BILGISI[15][8] = {
 	   //P,G,F,E,D,C,B,A
-	   {0,0,1,1,1,1,1,1},		//0
-	   {0,0,0,0,0,1,1,0},		//1
-	   {0,1,0,1,1,0,1,1},		//2
-	   {0,1,0,0,1,1,1,1},		//3
-	   {0,1,1,0,0,1,1,0},		//4
-	   {0,1,1,0,1,1,0,1},		//5
-	   {0,1,1,1,1,1,0,0},		//6
-	   {0,0,0,0,0,1,1,1},		//7		
-	   {0,1,1,1,1,1,1,1},		//8
-	   {0,1,1,0,0,1,1,1},		//9
-	   {0,1,1,0,0,0,1,1},		//DERECE
-	   {0,1,0,0,0,0,0,0},		//EKSİ
-	   {0,0,0,0,0,0,0,0},		//KAPALI
-	   {0,0,1,1,1,0,0,1},		//C
-	   {0,1,0,0,1,1,1,0}		//T
+		{0,0,1,1,1,1,1,1},		//0
+		{0,0,0,0,0,1,1,0},		//1
+		{0,1,0,1,1,0,1,1},		//2
+		{0,1,0,0,1,1,1,1},		//3
+		{0,1,1,0,0,1,1,0},		//4
+		{0,1,1,0,1,1,0,1},		//5
+		{0,1,1,1,1,1,0,0},		//6
+		{0,0,0,0,0,1,1,1},		//7
+		{0,1,1,1,1,1,1,1},		//8
+		{0,1,1,0,0,1,1,1},		//9
+		{0,1,1,0,0,0,1,1},		//DERECE
+		{0,1,0,0,0,0,0,0},		//EKSİ
+		{0,0,0,0,0,0,0,0},		//KAPALI
+		{0,0,1,1,1,0,0,1},		//C
+		{0,1,0,0,1,1,1,0}		//T
 	};
 };
 #endif
