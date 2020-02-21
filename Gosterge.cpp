@@ -1,11 +1,19 @@
-// 01.03.2018
-// Ortak anot/katod çoklu gösterge sürücü kütüphanesi
-// Selçuk TERZİOĞLU @strz35
-// Elektronik Öğretmeni
-// <strz35@hotmail.com.tr>
+/*
+    Kütüphane Adı   : Gosterge
+    Yazar  		    : Selçuk TERZİOĞLU
+    Yazım Tarihi    : 21.02.2020 (Güncelleme)
+	Llink			: https://github.com/selcukterzioglu/Gosterge
+    Açıklama        : Bu Kütüphane Sıcaklık Ölçüm uygulamalarında kullanılmak üzere ORTAK ANOT veya KATOT grup
+					  7 segment göstergeleri kullanmak amacıyla yazılmıştır. Bu kütüphanedeki temel amaç 
+					  öğrencilerin deney yapmasıdır.     
+*/
+
 
 #include "Gosterge.h"
 
+/*
+	Sınıfın constructor(yapıcı) fonksiyonudur. Gosterge nesnesi oluşturulduğunda otomatik olarak çalışır.	
+*/
 Gosterge::Gosterge(int * segmentler, int* suruculer, int displaySayisi, boolean ortakAnotMu)
 {
 	_segmentler = segmentler;
@@ -18,6 +26,15 @@ Gosterge::Gosterge(int * segmentler, int* suruculer, int displaySayisi, boolean 
 		pinMode(_suruculer[i], OUTPUT);
 }
 
+/*
+	Göstergeyi güncellemek için kullanılan fonksiyondur. +2 overload fonksiyonu vardır.
+	gostergeGuncelle(int data) : Ekrana data ile gönderilen sayı yazılır.
+	gostergeGuncelle(int data, int ondalikSayisi) : Ekrana data ile gönderilen sayı yazılır ve ondalıkSayisi ile 
+	belirtilen 7 segmentin ondalık işaretini aktif eder.
+	gostergeGuncelle(int data, int ondalikSayisi, int ozelKarakter, boolean pozisyon) : Ekrana data ile gönderilen 
+	sayı yazılır, ondalıkSayisi ile belirtilen 7 segmentin ondalık işaretini aktif eder istenilen DERECE, EKSI, C veya T
+	işaretlerinden istenileni göstergenin başına veya sonuna ekler.
+*/
 void Gosterge::gostergeGuncelle(int data)
 {
 	static int display = 0;
@@ -64,8 +81,12 @@ void Gosterge::gostergeGuncelle(int data, int ondalikSayisi, int ozelKarakter, b
 	rakamAyir(data, rakam, ondalikSayisi);
 	if (pozisyon == BASA_EKLE)
 		rakam[0] = ozelKarakter;
-	else
+	else{
+		for(int i=0;i<_displaySayisi-1;i++){
+			rakam[i]=rakam[i+1];
+		}
 		rakam[_displaySayisi - 1] = ozelKarakter;
+	}
 	gostergeGonder(rakam[display]);
 	if ((_displaySayisi - ondalikSayisi - 1) == display)
 		digitalWrite(_segmentler[0], HIGH ^ _ortakAnotMu);
@@ -75,6 +96,9 @@ void Gosterge::gostergeGuncelle(int data, int ondalikSayisi, int ozelKarakter, b
 	display++;
 }
 
+/*
+	Göstegeye aktif segment bilgilerini yazar.
+*/
 void Gosterge::gostergeGonder(uint8_t dispData)
 {
 	for (int i = 0; i < 8; i++) {
@@ -82,6 +106,9 @@ void Gosterge::gostergeGonder(uint8_t dispData)
 	}
 }
 
+/*
+	Göstergede gösterilecek veriyi rakamlarına ayırır.
+*/
 void Gosterge::rakamAyir(int data,int * rakamlar, int ondalik)
 {
 	int temp = data;
@@ -96,6 +123,7 @@ void Gosterge::rakamAyir(int data,int * rakamlar, int ondalik)
 			temp /= 10;
 		}		
 	}
+	//Göstergede başta 0 görülmesinin istemiyoruz. Bu sebeple sıfırları kaldırıyoruz.
 	if(data >= 0){
 		if(data < 10){
 			rakamlar[0] = D_NULL;
