@@ -44,7 +44,6 @@ void timer1Kesmesi() {
     float tmv = 0.107421875 * _sicaklik;
     temp = tmv * 10;
     temp = yuvarla(temp);
-    temp *= 10;
   }
   timerSay++;
   if (timerSay > 1000)
